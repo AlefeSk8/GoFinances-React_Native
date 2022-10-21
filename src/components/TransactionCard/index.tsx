@@ -20,6 +20,12 @@ export function TransactionCard({ data } : Props){
     const [ category ] = categories.filter(
         item => item.key === data.category
     );
+
+    const FormattedDate = Intl.DateTimeFormat('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+    }).format(new Date(data.date));
+
     return (
         <Container>
             <Header>
@@ -43,7 +49,7 @@ export function TransactionCard({ data } : Props){
                 </Category>
 
                 <DataOfTransaction>
-                    {data.date}
+                    {`${FormattedDate}/${new Date(data.date).getUTCFullYear()}`}
                 </DataOfTransaction>
             </Footer>
         </Container>

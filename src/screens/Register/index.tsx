@@ -78,11 +78,6 @@ export function Register(){
             if (category.key === 'category')
             return Alert.alert('Selecione a categoria.');
 
-            const FormattedDate = Intl.DateTimeFormat('pt-BR', {
-                day: '2-digit',
-                month: '2-digit',
-            }).format(new Date());
-
             const data = {
                 id: String(new Date().getTime()),
                 name: form.name,
@@ -90,7 +85,7 @@ export function Register(){
                 amount: Number(form.amount),
                 type: transactionType,
                 category: category.key,
-                date: `${FormattedDate}/${new Date().getUTCFullYear()}`,
+                date: new Date(), //`${FormattedDate}/${new Date().getUTCFullYear()}`
             };
 
         try {

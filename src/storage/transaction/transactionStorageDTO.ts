@@ -6,5 +6,5 @@ export interface transactionStorageDTO {
     title: string,
     amount: number,
     category: string,
-    date: string,
+    date: Date,
 }

@@ -65,7 +65,10 @@ export function Dashboard(){
                     outcomeTotal += Number(transaction.amount);
                     date.lastOutcome = `Última saída dia ${new Date(Number(transaction.id)).getDate()} de ${new Date(Number(transaction.id)).toLocaleString('pt-BR', {month: 'long'})}`;
                 };
-                date.lastTotal = transaction.date;
+                date.lastTotal = `${Intl.DateTimeFormat('pt-BR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                }).format(new Date(transaction.date))}/${new Date(transaction.date).getUTCFullYear()}`;
             }),
             
             total = incomeTotal - outcomeTotal;
